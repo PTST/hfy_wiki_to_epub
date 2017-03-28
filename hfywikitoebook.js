@@ -5,6 +5,14 @@ var resolver = require("resolver");
 var readline = require('readline');
 var exec = require('child_process').exec, child;
 
+
+var dir = './specs';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+
+
 srcArray = []
 titleArray = []
 
@@ -118,8 +126,8 @@ resolver.resolve(src, function(err, fullUrl, filename, contentType){
       }
         console.log(src);
         json.contents.push({"title" : titleArray[resolvedIndex], "src" : src});
-        console.log("Processed "+resolvedIndex+" out of "+(masterIndex+1)+" urls");
         resolvedIndex += 1;
+        console.log("url "+resolvedIndex+" out of "+(masterIndex+1)+" - "+src)
         if (resolvedIndex <= masterIndex)
         resolveUrl();
         else
