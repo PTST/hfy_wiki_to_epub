@@ -61,7 +61,7 @@ child = exec('node ebook.js /specs/'+jsonFileName,
 
 function convertToKindle(){
 console.log("\x1b[30m\x1b[42m Converting To Kindle Format - This may take a while \x1b\x1b[0m")
-child = exec('/Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-convert output/'+json.title+'.epub output/'+json.title+'.mobi',
+child = exec('/Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-convert output/'+json.filename+'.epub output/'+json.filename+'.mobi',
   function (error, stdout, stderr) {
     console.log(stdout);
     if (error !== null) {
